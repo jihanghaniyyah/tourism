@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', "My Mart | " . ucfirst($action) . " Item Category")
+@section('title', "Tourism App | " . ucfirst($action) . " Destination Categories")
 
 @section('content')
     <section class="item-edit py-3">
@@ -22,9 +22,9 @@
                                 name="category"
                             >
                                 @if (($action == 'create' && !old('category')) || ($action == 'update' && !$category->parent_category_id && !old('category')))
-                                    <option value="" selected>none</option>
+                                    <option value="" selected>None</option>
                                 @else
-                                    <option value="">none</option>
+                                    <option value="">None</option>
                                 @endif
                                 @foreach ($categoryList as $item)
                                     @if ($action == 'update' && $category->parent_category_id && $item->id != $category->id)
@@ -45,13 +45,13 @@
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="name" class="form-label">name</label>
+                            <label for="name" class="form-label">Name</label>
                             <input
                                 type="text"
                                 class="form-control @error('name') is-invalid @enderror"
                                 id="name"
                                 name="name"
-                                placeholder="Enter item category name"
+                                placeholder="Enter destination category"
                                 value="{{ $category->name ?? old('name') }}"
                             >
                             @error('price')
@@ -59,7 +59,7 @@
                             @enderror
                         </div>
                         <div class="d-flex justify-content-end">
-                            <button type="submit" class="btn btn-primary me-2">
+                            <button type="submit" class="btn btn-success me-2">
                                 {{ $action == 'update' ? 'Update' : 'Submit' }}
                             </button>
                             <a
@@ -70,14 +70,6 @@
                             >
                                 Cancel
                             </a>
-                            @if ($action == 'update')
-                                <button
-                                    id="button_form_delete"
-                                    class="btn btn-outline-danger ms-2"
-                                >
-                                    Delete
-                                </button>
-                            @endif
                         </div>
                     </form>
                     @if ($action == 'update')

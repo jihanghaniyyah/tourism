@@ -1,11 +1,11 @@
 @extends('layout')
 
-@section('title', 'My Mart | Item Categories')
+@section('title', 'Tourism App | Destination Categories')
 
 @section('content')
     <section class="item-list py-3">
         <div class="d-flex justify-content-start">
-            <a href="{{ route('item-categories.create') }}" type="button" class="btn btn    -success" type="button" role="button">Create Category</a>
+            <a href="{{ route('item-categories.create') }}" type="button" class="btn btn-primary" type="button" role="button">Create</a>
         </div>
         <div class="table-responsive mt-2">
             <table class="table">
@@ -35,7 +35,7 @@
                                             role="button"
                                             href="{{ route('item-categories.show', $category) }}"
                                         >
-                                            <i class="bi bi-pencil"></i>
+                                            Edit
                                         </a>
                                     </div>
                                     <form method="POST" action="{{ route('item-categories.destroy', $category) }}">
@@ -50,14 +50,14 @@
                                                 data-bs-placement="top"
                                                 data-bs-title="Category in use"
                                             >
-                                                <i class="bi bi-trash3"></i>
+                                                Delete
                                             </button>
                                         @else
                                             <button
                                                 type="submit"
                                                 class="btn btn-danger btn-sm"
                                             >
-                                                <i class="bi bi-trash3"></i>
+                                                Delete
                                             </button>
                                         @endif
 
