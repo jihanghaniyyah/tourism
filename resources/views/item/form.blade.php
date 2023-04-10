@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', "Tourism App | " . ucfirst($action) . " Item")
+@section('title', "Tourism App | " . ucfirst($action) . " Destinations")
 
 @section('content')
     <section class="item-edit py-3">
@@ -21,7 +21,7 @@
                                 class="form-control @error('name') is-invalid @enderror"
                                 id="name"
                                 name="name"
-                                placeholder="Enter product name"
+                                placeholder="Enter destination name"
                                 value="{{ $item->name ?? old('name') }}"
                             >
                             @error('name')
@@ -58,15 +58,16 @@
                                 class="form-control @error('loc') is-invalid @enderror"
                                 id="loc"
                                 name="loc"
-                                placeholder="Enter product loc"
+                                placeholder="Enter destination location"
                                 value="{{ $item->loc ?? old('loc') }}"
                             >
+`
                             @error('price')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="d-flex justify-content-end">
-                            <button type="submit" class="btn btn-primary me-2">
+                            <button type="submit" class="btn btn-success me-2">
                                 @if ($action == 'update')
                                     Update
                                 @else
@@ -81,14 +82,6 @@
                             >
                                 Cancel
                             </a>
-                            @if ($action == 'update')
-                                <button
-                                    id="button_form_delete"
-                                    class="btn btn-outline-danger ms-2"
-                                >
-                                    Delete
-                                </button>
-                            @endif
                         </div>
                     </form>
                     @if ($action == 'update')

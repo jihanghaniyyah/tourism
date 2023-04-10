@@ -1,11 +1,13 @@
 @extends('layout')
 
-@section('title', 'Tourism App | Items')
+@section('title', 'Tourism App | Destinations')
 
 @section('content')
     <section class="item-list py-3">
         <div class="d-flex justify-content-start">
-            <a href="{{ route('items.create') }}" type="button" class="btn btn-success" type="button" role="button">Create Item</a>
+            <a href="{{ route('items.create') }}" type="button" class="btn btn-primary" type="button" role="button">
+                Create
+            </a>
         </div>
         <div class="table-responsive mt-2">
             <table class="table">
@@ -35,7 +37,7 @@
                                             role="button"
                                             href="{{ route('items.edit', $item) }}"
                                         >
-                                            <i class="bi bi-pencil"></i>
+                                            Edit
                                         </a>
                                     </div>
                                     <form method="POST" action="{{ route('items.destroy', $item) }}">
@@ -45,7 +47,7 @@
                                             type="submit"
                                             class="btn btn-danger btn-sm"
                                         >
-                                            <i class="bi bi-trash3"></i>
+                                            Delete
                                         </button>
                                     </form>
                                 </div>
