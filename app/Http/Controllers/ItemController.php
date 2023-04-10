@@ -19,6 +19,14 @@ class ItemController extends Controller
     }
 
     /**
+     * Display a website landing page.
+     */
+    public function landing()
+    {
+        return view('index');
+    }
+
+    /**
      * Display a listing of the resource.
      */
     public function index()
@@ -83,7 +91,7 @@ class ItemController extends Controller
     {
         try {
             $this->itemService->update($request, $id);
-            return redirect()->back()->with('success', 'Item updated successfully.');
+            return redirect()->route('items.index')->with('success', 'Item updated successfully.');
         } catch (\Throwable $th) {
             return redirect()->back()->with('failed', 'Something when wrong.');
         }

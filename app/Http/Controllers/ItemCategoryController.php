@@ -81,7 +81,7 @@ class ItemCategoryController extends Controller
     {
         try {
             $this->itemCategoryService->update($request, $id);
-            return redirect()->back()->with('success', 'Category updated successfully.');
+            return redirect()->route('item-categories.index')->with('success', 'Category created successfully.');
         } catch (\Throwable $th) {
             return redirect()->route('item-categories.index')->with('failed', 'Something when wrong.');
         }
